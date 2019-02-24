@@ -16,16 +16,16 @@ You may use [Postman](https://www.getpostman.com/) or curl to test the project
 
 ## Request and response examples
 
-#### API Resources
+### API Resources
 The following API request and response is in JSON format
-- GET /api/v1/block/[id] 
+- GET /api/v1/block/[id]
 - POST /api/v1/block
 
-#### GET `/api/v1/block/[id]`
+### GET `/api/v1/block/[id]` 
 
 Get block in the blockchain using block id
 
-Response
+##### Response
 
 - Successful response:
 	```
@@ -44,14 +44,14 @@ Response
 
 Post new block into the blockchain
 
-Request
+##### Request
 ```
 {
     "data": "New block data can be string or object",
 }
 ```
 
-Response
+##### Response
 - 200 Created: Block has been successfully created
 - 400 Bad Request: JSON request is invalid
 - 500 Internal Server Error
