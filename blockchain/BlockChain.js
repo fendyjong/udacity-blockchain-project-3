@@ -44,7 +44,7 @@ class Blockchain {
 		// SHA256 requires a string of data
 		block.hash = SHA256(JSON.stringify(block)).toString();
 
-		return await this.bd.addLevelDBData(block.height, JSON.stringify(block));
+		return JSON.parse(await this.bd.addLevelDBData(block.height, JSON.stringify(block)));
 	}
 
 	// Get Block By Height

@@ -13,7 +13,7 @@ class BlockController {
 	 */
 	constructor(app) {
 		// TODO try to find a way to use router with this class.
-		this.urlPrefix = '/api/v1';
+		this.urlPrefix = '';
 		this.myBlockChain = new BlockChain.Blockchain();
 
 		this.app = app;
@@ -36,7 +36,6 @@ class BlockController {
 
 				// get block data
 				const block = await this.myBlockChain.getBlock(blockId);
-				console.log(block, blockId);
 
 				if (block) {
 					res.json(block);
@@ -60,9 +59,9 @@ class BlockController {
 				try {
 					// add new block to blockchain
 					let block = new Block.Block(data);
-					await this.myBlockChain.addBlock(block);
+					block = await this.myBlockChain.addBlock(block);
 
-					res.sendStatus(201);
+					res.status(201).json(block);
 				} catch (e) {
 					res.sendStatus(500);
 				}
